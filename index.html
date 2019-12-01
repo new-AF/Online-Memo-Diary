@@ -20,9 +20,11 @@
 
 <body>
 	<header>
-		<h1>Online Diary</h1>
+		<div class="Alert alert alert-danger" role="alert">
+		</div>
+		<h1 class="Title">Online Diary</h1>
 	</header>
-
+	
 	<main class="container text-center">
 	
 		<div class="pages-toolbar container">
@@ -52,11 +54,15 @@
 		</div>
 
 		<section class="edit-controls btn-group container">
-				<button class="btn btn-secondary mx-1">Change Font</button>
-				<button class="control-paste btn btn-secondary icon ion-md-clipboard mx-1"> Paste</button>
+				<button class="control-bold btn btn-secondary ion-md-water mx-1"> Bolden</button>
+				<button class="control-cross-off btn btn-secondary ion-md-close mx-1"> Cross-Off</button>
+				<button class="control-mark btn btn-secondary ion-md-brush mx-1"> Mark</button>
+				<button class="control-smaller btn btn-secondary icon ion-md-arrow-round-down mx-1"> Make Selection Smaller</button>
+				<button class="control-bigger btn btn-secondary icon ion-md-arrow-round-up mx-1"> Make Selection Bigger</button>
 		</section>
 
-		<div spellcheck="true" contentEditable="true" class="editor-text text-center">test</div>
+		<div spellcheck="true" contentEditable="true" class="Editor text-center">test<br><br>test
+		</div>
 		
 	</main>
 	
@@ -77,5 +83,8 @@
 	<script type="text/javascript" src="bootstrap.min.js"></script>
 	<script type="text/javascript" src="process.js"></script>
 	</script>
+	<footer>
+	<a class="badge badge-primary" href="https://github.com/new-af">Abdullah Fatota 2019</a>
+	</footer>
 </body>
 </html>

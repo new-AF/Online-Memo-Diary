@@ -5,7 +5,6 @@ d = document
 
 function PropCpy(x,y) {
   console.log('--->>',x,y)
-  console.log('--->>',x,y)
 
   x.prop('xxAttr').forEach( i => {
     console.log( '*******',i )
@@ -86,13 +85,56 @@ function Del(e) {
 }
 $(
   () => {
+	$('.Alert').toggle()
   SetCount ( $('.Page-Button') )
   $('.pages-controls .Add').click(Add)
   $('.pages-controls .Del').click(Del)
-  $('.control-paste').click(
+  current = 4;
+  $('.control-bigger').prop('size' , 1)
+  $('.control-smaller').prop('size' , -1)
+  $('.control-bigger , .control-smaller').click(
 	function(e) {
-		document.execCommand('fontSize',false,18)
+		x = $(e.target)
+		current += x.prop('size')
+		document.execCommand('fontSize',false,current)
 	}
 	)
+	$('.control-cross-off').click(
+		function(e) {
+			x = $(e.target)
+			document.execCommand('strikethrough',false,0)
+		}
+	)
+	$('.control-mark').prop('mark',false)
+	$('.control-mark').click(
+		function(e) {
+			x = $(e.target)
+			m = !x.prop('mark')
+			x.prop('mark' , m)
+			document.execCommand('backColor',false,m ? 'yellow' : 'transparent')
+		}
+	)
+	$('.control-bold').prop('bold',false)
+	$('.control-bold').click(
+		function(e) {
+			x = $(e.target)
+			m = !x.prop('bold')
+			x.prop('bold' , m)
+			document.execCommand('bold',false,0)
+		}
+	)
+	try {
+		if (Storage)
+			{
+				$('.Title').text(sessionStorage.getItem('name')+" 's " +$('.Title').text().split(' ')[1] )
+			}
+		else
+			{
+			}
+	}
+	catch (error) {
+		/*$('.Alert').text('(FAILED to retrieve User\'s Name) '+error)
+		$('.Alert').toggle()*/
+	}
 }
 )

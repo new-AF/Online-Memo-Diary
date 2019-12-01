@@ -9,7 +9,22 @@ margin : 1rem auto;
 .T {
   display : block;
 }
-
+.Editor {
+	border : blue solid 0.1rem;
+	padding: 0.5rem;
+	border-radius: 0.2rem;
+	box-shadow : midnightblue 0px 10px 20px;
+	background-image : repeating-linear-gradient( /*Credit to (Ali Mosaad) @ https://www.freecodecamp.org/forum/t/use-a-css-linear-gradient-to-create-a-striped-element/195320/3*/
+      transparent 0px,
+      transparent 30px,
+      rgba(0,0,0,0.3) 30px,
+      rgba(0,0,0,0.3) 31px
+    );	/*background-repeat: repeat-y;*/
+	background-clip : content-box;
+	height : 500px;
+	resize : vertical;
+	overflow : auto;
+}
 .pages-toolbar > * {
   display : inline;
 }
@@ -34,3 +49,6 @@ label {
 	text-align:center;
 }
 
+footer {
+	margin : 5rem auto;
+}
