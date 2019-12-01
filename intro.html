@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="color-scheme" content="dark light">
+	<title>Online Note and Memo Maker</title>
+	
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!--online dependencies-->
+	<!--Bootstrap CSS-->
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+	<header>
+		<h1>Online Diary</h1>
+	</header>
+
+	<main class="container text-center">
+		<div class="modal" id="intro-modal">
+			<div class="modal-dialog modal-dialog-centered">
+
+				
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Online Memo</h5>
+					</div>
+					
+					<div class="row modal-body">
+					<img src = "notebook.jpg" class="bg-cover col img-fluid">
+					
+					<div class="col container">
+						<form id = "intro-form">
+							<fieldset>
+								<div class="either">
+								
+									<input id="inputname" type="text" placeholder = "Username" required autofocus="true">
+									<label for="inputname">Or</label>
+									<input id="inputemail" type="email" placeholder = "Email">
+								</div>
+								<hr>
+								<input required id="inputpassword" type="password" placeholder="Password" required>
+								
+							</fieldset>
+						</form>
+					</div>
+					</div>
+					
+					<div class="modal-footer">
+						<div class = "row">
+						
+						<button form ="intro-form" type="submit" class="Continue col btn btn-primary">Continue</button>
+						</div>
+					</div>
+				
+				</div>
+
+				
+			</div>
+		</div>
+	</main>
+	
+	
+	<script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="popper.min.js"></script>
+	<script type="text/javascript" src="bootstrap.min.js"></script>
+	<script type="text/javascript" src="intro.js"></script>
+
+</body>
+
+<html>

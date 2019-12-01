@@ -5,13 +5,32 @@ text-align : center;
 margin : 1rem auto;
 }
 
+
 .T {
   display : block;
 }
 
-.L {
-  
+.pages-toolbar > * {
+  display : inline;
 }
 .center {
 text-align : center;
 }
+
+.Image {
+/*
+notebook-1226398.jpg
+Photo by Suzy Hazelwood from Pexels
+*/
+	background-image: url("notebook.jpg");
+	
+}
+
+label {
+	display : block;
+}
+
+.modal-body *  {
+	text-align:center;
+}
+

@@ -65,21 +65,34 @@ function SetCount(x,y) {
 }
 
 function Add(e) {
-  x = $(e.target)
-  p = x.parent()
-  last = p.children().not(x).last()
 
+  x = $(e.target)
+  p = $('.pages')//x.parent()
+  last = p.children().last()
+//console.log(last)
   n = last.clone(true)
 
 
   SetCount(n,last)
 
-  n.insertBefore(x)
+  n.appendTo(p)
 
+}
+
+function Del(e) {
+
+  x = $(e.target)
+  $('#del-modal').modal('show');
 }
 $(
   () => {
   SetCount ( $('.Page-Button') )
-  $('.L , .Add').click(Add)
+  $('.pages-controls .Add').click(Add)
+  $('.pages-controls .Del').click(Del)
+  $('.control-paste').click(
+	function(e) {
+		document.execCommand('fontSize',false,18)
+	}
+	)
 }
 )
