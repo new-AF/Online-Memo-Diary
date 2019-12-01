@@ -126,7 +126,7 @@ $(
 	try {
 		if (Storage)
 			{
-				$('.Title').text(sessionStorage.getItem('name')+" 's " +$('.Title').text().split(' ')[1] )
+				/*$('.Title').text(sessionStorage.getItem('name')+" 's " +$('.Title').text().split(' ')[1] )*/
 			}
 		else
 			{
