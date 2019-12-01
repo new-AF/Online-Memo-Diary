@@ -7,9 +7,13 @@
 	<meta name="color-scheme" content="dark light">
 	<title>Online Note/Memo Maker</title>
 	<link rel="stylesheet" href="style.css">
+	<!--jQuery-->
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 	<!--Bootstrap includes-->
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!--Ionicons-->
+	<link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 </head>
 
 
@@ -19,8 +23,13 @@
 	</header>
 
 	<main>
-		<textarea class="text-center">test</textarea>
+		<div class="T text-center" role="toolbar">
+				<button class="Page-Button btn btn-primary mx-1">Page</button>
+				<button class="L Add btn btn-primary icon ion-md-add mx-1"></button>
+		</div>
+		<textarea spellcheck="true" class="text-center">test</textarea>
 	</main>
 	<script type="text/javascript" src="process.js"></script>
+	<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
 </html>

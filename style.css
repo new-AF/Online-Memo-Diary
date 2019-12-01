@@ -2,6 +2,16 @@
 * {
 
 text-align : center;
-margin : 1 auto;
+margin : 1rem auto;
 }
 
+.T {
+  display : block;
+}
+
+.L {
+  
+}
+.center {
+text-align : center;
+}
