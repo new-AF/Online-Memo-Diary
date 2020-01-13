@@ -19,8 +19,9 @@
 
 
 <body>
+	
 	<header>
-		<h1>Online Diary</h1>
+		<h1>Diary</h1>
 	</header>
 
 	<main class="container text-center">
@@ -37,16 +38,22 @@
 					<img src = "notebook.jpg" class="bg-cover col img-fluid">
 					
 					<div class="col container">
+						<nav>
+							  <ul class="pagination">
+								<li class="cRegister page-item" style="margin-right : 0"><a class="page-link">Register</a></li>
+								<li class="cLogin page-item active" style="margin-left : 0"><a class="page-link">Login</a></li>
+							  </ul>
+						</nav>
+						<div class="cExists">
+							Username exists Please choose a different name
+						</div>
 						<form id = "intro-form">
 							<fieldset>
 								<div class="either">
 								
-									<input id="inputname" type="text" placeholder = "Username" required>
-									<label for="inputname">Or</label>
-									<input id="inputemail" type="email" placeholder = "Email">
+									<input id="inputname" type="text" placeholder = "Username / Email" required = "true">
 								</div>
-								<hr>
-								<input required id="inputpassword" type="password" placeholder="Password">
+								<input required="true" id="inputpassword" type="password" placeholder="Password">
 								
 							</fieldset>
 						</form>
@@ -56,7 +63,7 @@
 					<div class="modal-footer">
 						<div class = "row">
 						
-						<button id = "Continue" form ="intro-form" type="submit" class="col btn btn-primary">Continue</button>
+						<button id = "Continue" class="col btn btn-primary">Continue</button>
 						</div>
 					</div>
 				

@@ -1,5 +1,5 @@
 
-d = document
+const d = document
 
 /*A compliment to jQ's .prop*/
 
@@ -17,6 +17,12 @@ function put(x) {
   y = x instanceof Array ? x : [x]
   y.forEach( (i) => console.log (i))
 }
+
+function put0 (...args) {
+
+    console.log('>',...args,'<')
+}
+
 function undef(x,y) {
   //console.log(`[${y}]`)
   return x !== undefined ? x : (y === undefined ? "[**LAST RESORT X**]" : y)
@@ -75,7 +81,48 @@ function Add(e) {
   SetCount(n,last)
 
   n.appendTo(p)
+  
+  newx = e.currentTarget;
+  ed = $('.Editor')
+  edd = d.querySelector('.Editor')
+  j = n;
+  
+  j = SetAttr1(j[0])
+  SetAttr2(j)
+  $(j).click(Switch)
+  $(j).click()
+  //Switch(null,j);
+	
+	
+}
 
+function SetAttr1(x, f = false) {
+	j = x
+	ed = d.querySelector('.Editor')
+	//put0('befor-->',j,j.xxContent)
+	$(j).prop('xxContent', f? {content : ed.innerText , markup : ed.innerHTML } : { content: '', markup : ''} )
+	if (f)
+	{
+		$(j).click(Switch)
+	}
+	//put0('after-->',j,j.xxContent)
+	return j
+}
+
+function SetAttr2(x, f= false) {
+	$(document.querySelector('.Editor')).prop('xxActive', f ? d.querySelector('.Page-Button') : x )
+}
+
+function Switch(e,manually = false) {
+	
+	x = manually ? manually : e.currentTarget
+	ed = d.querySelector('.Editor')
+	//put0('before Switched',x,ed.xxActive)
+	//put0('editor->active',ed.xxActive)
+	
+	ed.xxActive = x
+	ed.innerHTML = ed.xxActive.xxContent.markup
+	//put0('after Switched',x,ed.xxActive)
 }
 
 function Del(e) {
@@ -83,10 +130,74 @@ function Del(e) {
   x = $(e.target)
   $('#del-modal').modal('show');
 }
+
+function change_name(name) {
+	x = $('body > header > h1')
+	
+	orig = x.text().split(' ')
+	
+	part2 = orig.slice(1);
+	if (name != null) {
+		x.text(  `${name}'s ${part2}`   )
+		
+	}
+}
+
+function parsejson(x) {
+	valid = x.slice(x.indexOf('{'), x.indexOf('}')+1);
+	valid = JSON.parse(valid);
+	
+	return valid;
+}
+
+function fill_response(x) {
+	//valid = parsejson(x);
+	//put0('Got Response from DB',x)
+}
+
+function logout(e) {
+	window.location.replace("intro.html");
+}
+
+function tChange(e) {
+	editor = e.currentTarget 
+	
+	button = editor.xxActive
+	
+	button.xxContent.content = editor.innerText
+	button.xxContent.markup = editor.innerHTML
+	
+	//put0('after tchange',button.xxContent)
+	allmarkup = Object()
+	$('.pages').children().each((i,j) => allmarkup[j.innerText]= j.xxContent )
+	//put0('allmarkup->',allmarkup)
+	//put0('allmarkupJSON->',JSON.stringify(allmarkup))
+	
+	
+	$.ajax({
+			url:'./session.php',
+			type:"POST",
+			data:{
+				Var1: JSON.stringify(allmarkup) ,
+				Var2: '' ,
+				Action: 'Store'
+			},
+			success: function(response){
+				
+				console.log('*',response,'*')},
+			error : function(a,b,c) {
+				put0('ajax error',a,b,c)
+			}
+	}			
+			)
+} // function end
 $(
   () => {
+	
 	$('.Alert').toggle()
   SetCount ( $('.Page-Button') )
+  SetAttr1(d.querySelector('.Page-Button'),true)
+  SetAttr2(null,true)
   $('.pages-controls .Add').click(Add)
   $('.pages-controls .Del').click(Del)
   current = 4;
@@ -136,5 +247,25 @@ $(
 		/*$('.Alert').text('(FAILED to retrieve User\'s Name) '+error)
 		$('.Alert').toggle()*/
 	}
+
+	
+	d.querySelector('.Editor').addEventListener('input',tChange)
+	$.ajax({
+		url:'./session.php',
+		type:"POST",
+		data:{
+			Username: '' ,
+			Password: '' ,
+			Action: 'ISsession'
+	}, success : r => {put0(r);valid = parsejson(r); change_name(valid.newname)}, error : (a,b,c) => put0(a,b,c) })
+	
+	$.ajax({
+			url:'./session.php',
+			type:"POST",
+			data:{
+				Var1: '' ,
+				Var2: '' ,
+				Action: 'Get'
+		},success: response => {put0('*',response,'*');fill_response(response)},error : 1})
 }
 )

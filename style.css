@@ -49,6 +49,10 @@ label {
 	text-align:center;
 }
 
+.cRegister, .cLogin {
+	cursor : pointer;
+}
+
 footer {
 	margin : 5rem auto;
 }
